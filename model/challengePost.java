@@ -9,10 +9,10 @@ public class challengePost {
 		this.idUser = idUser;
 		this.idChallenge = idChallenge;
 	}
-	public int getPostPhoto() {
+	public String getPostPhoto() {
 		return postPhoto;
 	}
-	public void setPostPhoto(int postPhoto) {
+	public void setPostPhoto(String postPhoto) {
 		this.postPhoto = postPhoto;
 	}
 	public int getIdUser() {

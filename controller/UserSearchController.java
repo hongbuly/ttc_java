@@ -4,7 +4,7 @@ import java.util.List;
 
 @RestController
 public class UserSearchController {
-private UserSearchMapper mapper;
+	private UserSearchMapper mapper;
 	
 	public UserSearchController(UserSearchMapper mapper) {
 		this.mapper = mapper;
