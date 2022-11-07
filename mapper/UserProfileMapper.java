@@ -22,10 +22,13 @@ public interface UserProfileMapper {
 	List<UserProfile> getUserProfileList();
 	
 	//insert, update, delete 는 결과로 int값 즉 이 SQL문으로 영향을 받은 레코드 개수가 반환됨.
-	@Insert("INSERT INTO user VALUES(#{email}, #{pw}, #{name})")
-	int insertUserProfile(@Param("email") String email, @Param("pw") String pw, @Param("name") String name);
+	@Insert("INSERT INTO user VALUES(#{id}, #{name}, #{email}, #{pw})")
+	int insertUserProfile(@Param("id") int id, @Param("name") String name, @Param("email") String email, @Param("pw") String pw);
 	
-	@Update("UPDATE user SET pw=#{pw}, name=#{name} WHERE email=#{email}")
+	@Update("UPDATE user SET name=#{name}, pw=#{pw} WHERE email=#{email}")
 	int updateUserProfile(@Param("email") String email, @Param("pw") String pw, @Param("name") String name);
 	
+	// 이메일과 비번이 맞다면 행 개수 1개가 리턴될 것임.
+	@Select("SELECT COUNT(*) from user WHERE email=#{email} AND pw=#{pw}")
+	int getUserLogin(@Param("email") String email, @Param("pw") String pw);
 }

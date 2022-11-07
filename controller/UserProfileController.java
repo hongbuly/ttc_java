@@ -14,39 +14,35 @@ import project.model.UserProfile;
 
 @RestController
 public class UserProfileController {
-	
 	private UserProfileMapper mapper;
 	
 	//생성자. mapper를 전달받아서 private변수에 설정함.
 	public UserProfileController(UserProfileMapper mapper) {
 		this.mapper = mapper; //전달받은 mapper 로 api를 호출 가능.
 	}
-    
-    @GetMapping("/connect")
-    public String getConnectText() {
-        return "연결 되었습니다!";
-    }
 	
-	@GetMapping("/user/{email}")
-	public UserProfile getUserProfile(@PathVariable("email") String email) {
-		return mapper.getUserProfile(email);
-	}
-	
+	// 유저 리스트 얻기
 	@GetMapping("/user/all")
 	public List<UserProfile> getUserProfileList() {
 		return mapper.getUserProfileList();
 	}
-	
-	//데이터 생성
-	@PostMapping("/user/{email}")
-	public void postUserProfile(@PathVariable("email") String email, @RequestParam("pw") String pw, @RequestParam("name") String name) {
-		mapper.insertUserProfile(email, pw, name);
+
+	// 이메일로 해당 유저 정보 얻기
+	@PostMapping("/user/email")
+	public UserProfile getUserProfile(@RequestParam("email") String email) {
+		return mapper.getUserProfile(email);
 	}
 	
-	//데이터 수정
-	@PutMapping("/user/{id}")
-	public void putUserProfile(@PathVariable("email") String email, @RequestParam("pw") String pw, @RequestParam("name") String name) {
-		mapper.updateUserProfile(email, pw, name);
+	// 유저 회원가입
+	@PostMapping("/user/add")
+	public void postUserProfile(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("pw") String pw) {
+		mapper.insertUserProfile(id, name, email, pw);
+	}
+	
+	// 로그인이 되면 1, 아니면 0
+	@PostMapping("/user/login")
+	public int postUserProfile(@RequestParam("email") String email, @RequestParam("pw") String pw) {
+		return mapper.getUserLogin(email, pw);
 	}
 	
 }
