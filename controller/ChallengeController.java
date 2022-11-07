@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.ChallengeMapper;
-import project.Challenge;
+import project.mapper.ChallengeMapper;
+import project.model.Challenge;
 
 @RestController
 public class ChallengeController {
@@ -37,8 +37,8 @@ public class ChallengeController {
 	}
 
 	// 챌린지 삭제
-	@PostMapping("/challenge/idChallenge")
-	public Challenge deleteChallengeById(@RequestParam("idChallenge") int idChallenge) {
+	@PostMapping("/challenge/delete")
+	public int deleteChallengeById(@RequestParam("idChallenge") int idChallenge) {
 		return mapper.deleteChallengeById(idChallenge);
 	}
 

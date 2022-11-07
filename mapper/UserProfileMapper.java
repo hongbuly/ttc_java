@@ -14,10 +14,10 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface UserProfileMapper {
 	//getUserProfile를 호출했을 때 이 SQL문이 실행되어 UserProfile형태로 데이터를 가져옴
-	@Select("SELECT * FROM userProfile WHERE email=#{email}") // 파라미터와 id를 연결할 때는 $가 아니라 #로 표시해야 함.
+	@Select("SELECT * from userProfile WHERE email=#{email}") // 파라미터와 id를 연결할 때는 $가 아니라 #로 표시해야 함.
 	UserProfile getUserProfile(@Param("email") String email);
 	
-	@Select("SELECT * FROM userProfile")
+	@Select("SELECT * from userProfile")
 	List<UserProfile> getUserProfileList();
 	
 	// insert, update, delete 는 결과로 int값 즉 이 SQL문으로 영향을 받은 레코드 개수가 반환됨.
@@ -30,7 +30,7 @@ public interface UserProfileMapper {
 	int updateUserProfile(@Param("email") String email, @Param("pw") String pw, @Param("name") String name);
 	
 	// 이메일과 비번이 맞다면 행 개수 1개가 리턴될 것임.
-	@Select("SELECT COUNT(*) FROM userProfile WHERE email=#{email} AND pw=#{pw}")
+	@Select("SELECT COUNT(*) from userProfile WHERE email=#{email} AND pw=#{pw}")
 	int getUserLogin(@Param("email") String email, @Param("pw") String pw);
 	
 	// level 올리기.

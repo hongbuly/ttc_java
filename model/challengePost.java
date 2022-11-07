@@ -25,7 +25,7 @@ public class ChallengePost {
 	public int getidChallenge() {
 		return idChallenge;
 	}
-	public void setIdChallenge(String idChallenge) {
+	public void setIdChallenge(int idChallenge) {
 		this.idChallenge = idChallenge;
 	}
 	

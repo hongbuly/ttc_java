@@ -9,7 +9,7 @@ public class Tag {
 		this.tagName = tagName;
 	}
 
-	public int getTagName() {
+	public String getTagName() {
 		return tagName;
 	}
 	public void setTagName(String tagName) {

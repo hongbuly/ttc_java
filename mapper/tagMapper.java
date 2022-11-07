@@ -9,15 +9,13 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import project.model.Tag;
+
 @Mapper
 public interface TagMapper {
-	
 	@Select("SELECT tagName FROM tag WHERE idTag=#{idTag}")
-	UserProfile getTag(@Param("idTag") int idTag);
+	Tag getTag(@Param("idTag") int idTag);
 	
 	@Select("SELECT tagName FROM tag")
-	List<tag> getTagList();
-	
-	
+	List<Tag> getTagList();
 }
-
