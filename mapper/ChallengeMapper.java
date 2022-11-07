@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import project.Challenge;
+import project.model.Challenge;
 
 @Mapper
 public interface ChallengeMapper {
@@ -27,7 +27,7 @@ public interface ChallengeMapper {
 
 	// 챌린지 삭제
 	@Delete("DELETE FROM challenge WHERE idChallenge=#{idChallenge}")
-	Challenge deleteChallengeById(@Param("idChallenge") int idChallenge);
+	int deleteChallengeById(@Param("idChallenge") int idChallenge);
 
 	// 챌린지 내용 수정
 

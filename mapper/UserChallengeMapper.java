@@ -1,6 +1,6 @@
 package project.mapper;
 
-import project.UserChallenge;
+import project.model.UserChallenge;
 
 import java.util.List;
 

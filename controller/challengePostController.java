@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.mapper.UserProfileMapper;
-import project.model.UserProfile;
+import project.mapper.ChallengePostMapper;
+import project.model.ChallengePost;
 
 @RestController
-public class ChallengeController {
+public class ChallengePostController {
 	
 	private ChallengePostMapper mapper;
 	
-	public ChallengePostMapper(ChallengePostMapper mapper) {
+	public ChallengePostController(ChallengePostMapper mapper) {
 		this.mapper = mapper; 
 	}
     
 	@GetMapping("/challengePost/get")
-	public ChallengePost getchallengePost(@RequestParam("idUser") int idUser, @RequestParam("idchallenge") int idChallenge, @RequestParam("postPhoto") String postPhoto) {
-		return mapper.getchallengePost(idUser, idChallenge, postPhoto);
+	public ChallengePost getChallengePost(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge, @RequestParam("postPhoto") String postPhoto) {
+		return mapper.getChallengePost(idUser, idChallenge, postPhoto);
 	}
 	
 	@GetMapping("/challengePost/all")
-	public List<ChallengePost> getchallengePostList() {
-		return mapper.getchallengePostList();
+	public List<ChallengePost> getChallengePostList(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
+		return mapper.getChallengePostList(idUser, idChallenge);
 	}
 	
 	@PostMapping("/challengePost/post")
@@ -40,3 +40,4 @@ public class ChallengeController {
 	public void putUserProfile(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge, @RequestParam("postPhoto") String postPhoto) {
 		mapper.updateUserProfile(idUser, idChallenge, postPhoto);
 	}
+}

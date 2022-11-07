@@ -15,7 +15,7 @@ public class UserSearch {
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	public int getSearch() {
+	public String getSearch() {
 		return search;
 	}
 	public void setSearch(String search) {

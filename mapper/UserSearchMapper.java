@@ -8,13 +8,15 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
+import project.model.UserSearch;
+
 @Mapper
 public interface UserSearchMapper {
 		
 		@Select("SELECT * FROM usersearch WHERE idUser=#{idUser}")
-		List<UserProfile> getUserProfileList()(@Param("idUser") int idUser);
+		List<UserSearch> getUserSearchList(@Param("idUser") int idUser);
 		
 		@Insert("INSERT INTO usersearch VALUES(#{idUser}, #{search})")
-		int insertUserProfile(@Param("idUser") int idUser, @Param("search") String search);
+		int insertUserSearch(@Param("idUser") int idUser, @Param("search") String search);
 		
 }
