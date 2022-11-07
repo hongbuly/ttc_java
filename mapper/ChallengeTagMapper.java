@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Delete;
 
+@Mapper
 public interface ChallengeTagMapper {
 	// 태그 리스트들 가져오기
 	@Select("SELECT * FROM challengeTag WHERE idChallenge=#{idChallenge}")
