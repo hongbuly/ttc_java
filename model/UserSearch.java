@@ -1,4 +1,4 @@
-package com.example.androidsever.model;
+package project.model;
 
 public class UserSearch {
 	private int idUser;

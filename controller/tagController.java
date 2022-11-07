@@ -1,19 +1,27 @@
-import java.util.List;
+package project.controller;
 
-public class tagController {
-	private tagMapper mapper;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import project.mapper.TagMapper;
+import project.model.Tag;
+
+public class TagController {
+	private TagMapper mapper;
 	
-	public tagController(tagMapper mapper) {
+	public TagController(TagMapper mapper) {
 		this.mapper = mapper;
 	}
 	
 	@GetMapping("/tag/get")
-	public tag getTag(@RequestParam("idTag") int idTag) {
+	public Tag getTag(@RequestParam("idTag") int idTag) {
 		return mapper.getUserProfile(idTag);
 	}
 	
 	@GetMapping("/tag/all")
-	public List<tag> getTagList() {
+	public List<Tag> getTagList() {
 		return mapper.getTagList();
 	}
 }

@@ -13,11 +13,11 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface UserChallengeMapper {
 	// 참여중인 챌린지 목록
-	@Select("SELECT * from userChallenge WHERE idUser=#{idUser}")
+	@Select("SELECT * FROM userChallenge WHERE idUser=#{idUser}")
 	List<UserChallenge> getUserChallengeList(@Param("idUser") int idUser);
 
 	// 챌린지에 대한 나의 레벨과 인증 정보
-	@Select("SELECT * from userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
+	@Select("SELECT * FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
 	UserChallenge getUserChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
 
 	// 인증하기
@@ -30,6 +30,6 @@ public interface UserChallengeMapper {
 	int insertUserChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, @Param("ranking") int ranking);
 	
 	// 챌린지 참여중인 사람 수 구하기(랭킹)
-	@Select("SELECT COUNT(*) from userChallenge WHERE idChallenge=#{idChallenge}")
+	@Select("SELECT COUNT(*) FROM userChallenge WHERE idChallenge=#{idChallenge}")
 	int getUserChallengeRanking(@Param("idChallenge") int idChallenge);
 }

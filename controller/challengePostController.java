@@ -13,21 +13,21 @@ import project.mapper.UserProfileMapper;
 import project.model.UserProfile;
 
 @RestController
-public class challengeController {
+public class ChallengeController {
 	
-	private challengePostMapper mapper;
+	private ChallengePostMapper mapper;
 	
-	public challengePostMapper(challengePostMapper mapper) {
+	public ChallengePostMapper(ChallengePostMapper mapper) {
 		this.mapper = mapper; 
 	}
     
 	@GetMapping("/challengePost/get")
-	public challengePost getchallengePost(@RequestParam("idUser") int idUser, @RequestParam("idchallenge") int idChallenge, @RequestParam("postPhoto") String postPhoto) {
+	public ChallengePost getchallengePost(@RequestParam("idUser") int idUser, @RequestParam("idchallenge") int idChallenge, @RequestParam("postPhoto") String postPhoto) {
 		return mapper.getchallengePost(idUser, idChallenge, postPhoto);
 	}
 	
 	@GetMapping("/challengePost/all")
-	public List<challengePost> getchallengePostList() {
+	public List<ChallengePost> getchallengePostList() {
 		return mapper.getchallengePostList();
 	}
 	

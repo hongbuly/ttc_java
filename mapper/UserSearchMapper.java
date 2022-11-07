@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface UserSearchMapper {
 		
-		@Select("SELECT * from usersearch WHERE idUser=#{idUser}")
+		@Select("SELECT * FROM usersearch WHERE idUser=#{idUser}")
 		List<UserProfile> getUserProfileList()(@Param("idUser") int idUser);
 		
 		@Insert("INSERT INTO usersearch VALUES(#{idUser}, #{search})")
