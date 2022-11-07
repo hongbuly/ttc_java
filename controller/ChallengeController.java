@@ -37,7 +37,7 @@ public class ChallengeController {
 	}
 
 	// 챌린지 삭제
-	@PostMapping("/challenge/idChallenge")
+	@PostMapping("/challenge/delete")
 	public int deleteChallengeById(@RequestParam("idChallenge") int idChallenge) {
 		return mapper.deleteChallengeById(idChallenge);
 	}
