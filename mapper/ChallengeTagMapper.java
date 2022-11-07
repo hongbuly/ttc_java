@@ -1,6 +1,6 @@
-package com.example.androidsever.mapper;
+package project.mapper;
 
-import com.example.androidsever.model.ChallengeTag;
+import project.model.ChallengeTag;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Delete;
 
 public interface ChallengeTagMapper {
 	// 태그 리스트들 가져오기
-	@Select("SELECT * from challengeTag WHERE idChallenge=#{idChallenge}")
+	@Select("SELECT * FROM challengeTag WHERE idChallenge=#{idChallenge}")
 	List<ChallengeTag> getChallengeTagList(@Param("idChallenge") int idChallenge);
 	
 	// 태그 추가

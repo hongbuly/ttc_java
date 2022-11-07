@@ -1,4 +1,4 @@
-package com.example.androidsever.model;
+package project.model;
 
 public class ChallengeTag {
 	private int idChallenge;

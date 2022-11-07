@@ -1,9 +1,10 @@
+package project.model;
 
-public class challengePost {
+public class ChallengePost {
 	String postPhoto;
 	int idUser;
 	int idChallenge;
-	public challengePost(String postPhoto, int idUser, int idChallenge) {
+	public ChallengePost(int idUser, int idChallenge, String postPhoto) {
 		super();
 		this.postPhoto = postPhoto;
 		this.idUser = idUser;

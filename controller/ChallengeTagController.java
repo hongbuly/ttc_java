@@ -1,12 +1,12 @@
-package com.example.androidsever.controller;
+package project.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.androidsever.mapper.ChallengeTagMapper;
-import com.example.androidsever.model.ChallengeTag;
+import project.mapper.ChallengeTagMapper;
+import project.model.ChallengeTag;
 
 @RestController
 public class ChallengeTagController {

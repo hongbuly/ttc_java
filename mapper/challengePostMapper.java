@@ -10,12 +10,12 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 @Mapper
-public interface challengePostMapper {
+public interface ChallengePostMapper {
 	
-	@Select("SELECT * from challengePost WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND postChallenge=#{postChallenge}") 
+	@Select("SELECT * FROM challengePost WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND postChallenge=#{postChallenge}") 
 	challengePost getchallengePost(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, @Param("postChallenge") String postChallenge);
 	
-	@Select("SELECT * from challengePost WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
+	@Select("SELECT * FROM challengePost WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
 	List<challengePost> getchallengePostList()(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
 	
 	@Insert("INSERT INTO user VALUES(#{idUser}, #{idChallenge}, #{postChallenge})")

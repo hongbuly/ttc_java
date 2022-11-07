@@ -1,8 +1,14 @@
+package project.model;
 
-public class tag {
+public class Tag {
+	int idTag;
 	String tagName;
-	int idTag
 	
+	public Tag(int idTag, String tagName) {
+		this.idTag = idTag;
+		this.tagName = tagName;
+	}
+
 	public int getTagName() {
 		return tagName;
 	}

@@ -1,4 +1,4 @@
-package com.example.androidsever.model;
+package project.model;
 
 public class UserChallenge {
 	private int idUser;
