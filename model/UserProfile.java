@@ -1,14 +1,32 @@
 package project.model;
 
 public class UserProfile {
+	private int id;
+	private String name;
 	private String email;
 	private String pw;
-	private String name;
-	public UserProfile(String email, String pw, String name) {
+	private int level = 1;
+	
+	public UserProfile(int id, String name, String email, String pw) {
 		super();
+        this.id = id;
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
+	}
+    
+    public UserProfile(int id, String name, String email, String pw, int level) {
+        this.id = id;
+		this.email = email;
+		this.pw = pw;
+		this.name = name;
+        this.level = level;
+    }
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -28,6 +46,10 @@ public class UserProfile {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 }
