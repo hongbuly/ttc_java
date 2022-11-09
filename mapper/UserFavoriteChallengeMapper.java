@@ -1,4 +1,4 @@
-package com.example.androidsever.mapper;
+package project.mapper;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.example.androidsever.model.UserFavoriteChallenge;
+import project.model.UserFavoriteChallenge;
 
 @Mapper
 public interface UserFavoriteChallengeMapper {
