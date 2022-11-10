@@ -19,6 +19,6 @@ public interface UserFavoriteChallengeMapper {
 		@Insert("INSERT INTO userfavoritechallenge VALUES(#{idUser}, #{idChallenge})")
 		int insertUserFavoriteChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
 		
-		@Delete("DELETE FROM userfavoritechallenge WHERE idUser=#{idUser}")
-		int deleteUserFavoriteChallenge(@Param("idUser") int idUser);
+		@Delete("DELETE FROM userfavoritechallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
+		int deleteUserFavoriteChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
 }

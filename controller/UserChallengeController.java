@@ -18,14 +18,14 @@ public class UserChallengeController {
 		this.mapper = mapper;
 	}
 	
-	// 참여중인 챌린지 목록
+	// 李몄뿬以묒씤 梨뚮┛吏� 紐⑸줉
 	@PostMapping("/userChallenge/all")
 	public List<UserChallenge> getUserChallengeList(@RequestParam("idUser") int idUser) {
 		List<UserChallenge> temp = mapper.getUserChallengeList(idUser);
 		for (int i = 0; i < temp.size(); i++) {
 			String day = temp.get(i).getCertiificationDay();
 			String now = LocalDate.now().toString();
-			// 오늘 인증을 하지 않았다면 0
+			// �삤�뒛 �씤利앹쓣 �븯吏� �븡�븯�떎硫� 0
 			if (!day.equals(now)) {
 				temp.get(i).setCertification(0);
 			}
@@ -33,7 +33,7 @@ public class UserChallengeController {
 		return temp;
 	}
 	
-	// 인증하기
+	// �씤利앺븯湲�
 	@PostMapping("/userChallenge/certification")
 	public int updateUserChallenge(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
 		UserChallenge temp = mapper.getUserChallenge(idUser, idChallenge);
@@ -42,8 +42,8 @@ public class UserChallengeController {
 		return mapper.updateCertification(idUser, idChallenge, userPostCount, 1);
 	}
 	
-	// 챌린지 참여하기
-	@PostMapping("userChallenge/add")
+	// 梨뚮┛吏� 李몄뿬�븯湲�
+	@PostMapping("/userChallenge/add")
 	public int insertUserChallenge(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
 		int ranking = mapper.getUserChallengeRanking(idChallenge) + 1;
 		return mapper.insertUserChallenge(idUser, idChallenge, ranking);
