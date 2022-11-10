@@ -20,11 +20,13 @@ public class UserSearchController {
 		this.mapper = mapper;
 	}
 	
+	// 유저 최근검색어 불러오기
 	@GetMapping("/usersearch/get")
 	public List<UserSearch> getUserSearchList(@RequestParam("idUser") int idUser) {
 		return mapper.getUserSearchList(idUser);
 	}
 	
+	// 유저 최근검색어 추가하기
 	@PostMapping("/usersearch/add")
 	public void postUserSearch(@RequestParam("idUser") int idUser, @RequestParam("search") String search) {
 		mapper.insertUserSearch(idUser, search);
