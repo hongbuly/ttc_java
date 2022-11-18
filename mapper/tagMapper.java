@@ -19,4 +19,7 @@ public interface tagMapper {
 	
 	@Select("SELECT tagName FROM Tag")
 	List<Tag> getTagList();
+	
+	@Select("SELECT * FROM challenge c JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE c.idChallenge=#{idChallenge} ")
+	List<Tag> getTagByChallengeId(@Param("idChallenge") int idChallenge);
 }
