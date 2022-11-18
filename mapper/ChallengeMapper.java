@@ -14,15 +14,15 @@ import project.model.Challenge;
 @Mapper
 public interface ChallengeMapper {
 	// 챌린지 전체 검색
-	@Select("SELECT * FROM challenge")
+	@Select("SELECT * FROM challenge c JOIN challengeTag ct ON c.idChallenge = ct.idchallenge JOIN tag t ON ct.idTag = t.idTag")
 	List<Challenge> getChallengeList();
 
 	// 챌린지 이름 기준 검색
-	@Select("SELECT * FROM challenge WHERE nameChallenge=#{nameChallenge}")
+	@Select("SELECT * FROM challenge c JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE nameChallenge=#{nameChallenge}")
 	Challenge getChallengeByName(@Param("nameChallenge") String nameChallenge);
 
 	// 챌린지 아이디 기준 검색
-	@Select("SELECT * FROM challenge WHERE idChallenge=#{idChallenge}")
+	@Select("SELECT * FROM challenge c JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE idChallenge=#{idChallenge}")
 	Challenge getChallengeById(@Param("idChallenge") int idChallenge);
 
 	// 챌린지 삭제
