@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import project.mapper.TagMapper;
 import project.model.Tag;
 
+@RestController
 public class TagController {
 	private TagMapper mapper;
 	
