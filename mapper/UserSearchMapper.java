@@ -13,10 +13,10 @@ import project.model.UserSearch;
 @Mapper
 public interface UserSearchMapper {
 		
-		@Select("SELECT * FROM usersearch WHERE idUser=#{idUser}")
+		@Select("SELECT * FROM userSearch WHERE idUser=#{idUser}")
 		List<UserSearch> getUserSearchList(@Param("idUser") int idUser);
 		
-		@Insert("INSERT INTO usersearch VALUES(#{idUser}, #{search})")
+		@Insert("INSERT INTO userSearch VALUES(#{idUser}, #{search})")
 		int insertUserSearch(@Param("idUser") int idUser, @Param("search") String search);
 		
 }
