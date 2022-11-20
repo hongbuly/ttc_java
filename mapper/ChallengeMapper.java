@@ -18,7 +18,7 @@ public interface ChallengeMapper {
 	List<Challenge> getChallengeList();
 
 	// 챌린지 이름 기준 검색
-	@Select("SELECT * FROM challenge WHERE nameChallenge=#{nameChallenge}")
+	@Select("SELECT * FROM challenge WHERE nameChallenge LIKE CONCAT('%', #{nameChallenge}, '%')")
 	Challenge getChallengeByName(@Param("nameChallenge") String nameChallenge);
 
 	// 챌린지 아이디 기준 검색
