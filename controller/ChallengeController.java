@@ -25,13 +25,13 @@ public class ChallengeController {
 	}
 
 	// 챌린지 이름 기준 검색
-	@PostMapping("/challenge/nameChallenge")
+	@GetMapping("/challenge/nameChallenge")
 	public Challenge getChallengeByName(@RequestParam("nameChallenge") String nameChallenge) {
 		return mapper.getChallengeByName(nameChallenge);
 	}
 
 	// 챌린지 아이디 기준 검색
-	@PostMapping("/challenge/idChallenge")
+	@GetMapping("/challenge/idChallenge")
 	public Challenge getChallengeById(@RequestParam("idChallenge") int idChallenge) {
 		return mapper.getChallengeById(idChallenge);
 	}
