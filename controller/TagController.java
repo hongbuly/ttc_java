@@ -27,4 +27,10 @@ public class TagController {
 	public List<Tag> getTagList() {
 		return mapper.getTagList();
 	}
+
+	// idChallenge로 해당 태그 가져오기
+	@GetMapping("/tag/tagChallenge")
+	public List<Tag> getTagByChallengeId(@RequestParam("idChallenge") int idChallenge){
+		return mapper.getTagByChallengeId(idChallenge);
+	}
 }
