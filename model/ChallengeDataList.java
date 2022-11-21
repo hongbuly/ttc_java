@@ -1,4 +1,4 @@
-package project.model
+package project.model;
 
 public class ChallengeDataList {
 	private String nameChallenge;
