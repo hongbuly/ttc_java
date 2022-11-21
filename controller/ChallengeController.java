@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.mapper.ChallengeMapper;
 import project.model.Challenge;
+import project.model.ChallengeList;
+import project.model.ChallengeMadeUser;
 
 @RestController
 public class ChallengeController {
@@ -34,6 +36,20 @@ public class ChallengeController {
 	@GetMapping("/challenge/idChallenge")
 	public Challenge getChallengeById(@RequestParam("idChallenge") int idChallenge) {
 		return mapper.getChallengeById(idChallenge);
+	}
+
+	//챌린지 만든 사람 검색
+	@GetMapping("/challenge/username")
+	public ChallengeMadeUser getMadeUserNameById(@RequestParam("name") String name){
+		return mapper.getMadeUserNameByName(name);
+	}
+	
+	// 챌린지 이름 기준 데이터 모델 검색
+	@GetMapping("/challenge/challengeList")
+	public ChallengeDataList getChallengeListByName(@RequestParam("name") String name) {
+		List<ChallengeList> temp = mapper.getChallengeListByName(name);
+		ChallengeDataList reli = new ChallengeDataList(temp.get(0).getNameChallenge(), temp.get(0).getImageLink(), temp.get(0).getCountUser(), temp.get(0).getName(), temp.get(0).getTagName(), temp.get(1).getTagName());
+		return reli;
 	}
 
 	// 챌린지 삭제

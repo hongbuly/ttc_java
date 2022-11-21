@@ -10,6 +10,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import project.model.Challenge;
+import project.model.ChallengeMadeUser;
+import project.model.ChallengeList;
+
 
 @Mapper
 public interface ChallengeMapper {
@@ -24,6 +27,14 @@ public interface ChallengeMapper {
 	// 챌린지 아이디 기준 검색
 	@Select("SELECT * FROM challenge WHERE idChallenge=#{idChallenge}")
 	Challenge getChallengeById(@Param("idChallenge") int idChallenge);
+
+	//챌린지 이름 기준 챌린지+챌린지만든 유저이름 검색
+	@Select("SELECT * FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id WHERE name=#{name}")
+	ChallengeMadeUser getMadeUserNameByName(@Param("name") String name);
+	
+	//challengeListModel 리턴
+	@Select("SELECT * FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag  WHERE name=#{name}")
+	List<ChallengeList> getChallengeListByName(@Param("name") String name);
 
 	// 챌린지 삭제
 	@Delete("DELETE FROM challenge WHERE idChallenge=#{idChallenge}")
