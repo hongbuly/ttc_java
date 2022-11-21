@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import project.mapper.UserFavoriteChallengeMapper;
 import project.model.UserFavoriteChallenge;
 
+@Restcontroller
 public class UserFavoriteChallengeController {
 	private UserFavoriteChallengeMapper mapper;
 	
