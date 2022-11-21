@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.mapper.ChallengeMapper;
 import project.model.Challenge;
+import project.model.ChallengeList;
+import project.model.ChallengeMadeUser;
 
 @RestController
 public class ChallengeController {
