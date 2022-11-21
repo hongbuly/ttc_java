@@ -70,6 +70,6 @@ public class ChallengeController {
 			@RequestParam("countInterval") String countInterval,
 			@RequestParam("challengePostCount") int challengePostCount, @RequestParam("madeIdUser") int madeIdUser) {
 		mapper.insertChallenge(idChallenge, nameChallenge, intruduce, imageLink, frequency, possibleStartTime,
-				possibleEndTime, count, countInterval, challengePostCount, madeIdUser);
+				possibleEndTime, count, countInterval, challengePostCount, madeIdUser, countUser);
 	}
 }
