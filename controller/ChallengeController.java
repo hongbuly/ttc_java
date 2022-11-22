@@ -47,10 +47,12 @@ public class ChallengeController {
 	
 	// 챌린지 이름 기준 데이터 모델 검색
 	@GetMapping("/challenge/challengeList")
-	public ChallengeDataList getChallengeListByName(@RequestParam("name") String name) {
-		List<ChallengeList> temp = mapper.getChallengeListByName(name);
+	public List<ChallengeDataList> getChallengeListByName(@RequestParam("nameChallenge") String nameChallenge) {
+		List<ChallengeList> temp = mapper.getChallengeListByName(nameChallenge);
 		ChallengeDataList reli = new ChallengeDataList(temp.get(0).getNameChallenge(), temp.get(0).getImageLink(), temp.get(0).getCountUser(), temp.get(0).getName(), temp.get(0).getTagName(), temp.get(1).getTagName());
-		return reli;
+		List<ChallengeDataList> re = new ArrayList<>();
+		re.add(reli);
+		return re;
 	}
 
 	// 챌린지 삭제
