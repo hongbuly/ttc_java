@@ -3,16 +3,16 @@ package project.model;
 public class ChallengeDataList {
 	private String nameChallenge;
 	private String imageLink;
-	private int count;
+	private int countUser;
 	private String name;
 	private String tagName1;
 	private String tagName2;
-	public ChallengeDataList(String nameChallenge, String imageLink, int count, String name,
+	public ChallengeDataList(String nameChallenge, String imageLink, int countUser, String name,
 			String tagName1, String tagName2) {
 		super();
 		this.nameChallenge = nameChallenge;
 		this.imageLink = imageLink;
-		this.count = count;
+		this.countUser = countUser;
 		this.name = name;
 		this.tagName1 = tagName1;
 		this.tagName2 = tagName2;
@@ -29,11 +29,11 @@ public class ChallengeDataList {
 	public void setImageLink(String imageLink) {
 		this.imageLink = imageLink;
 	}
-	public int getChallengePostCount() {
-		return count;
+	public int getCountUser() {
+		return countUser;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setCountUser(int countUser) {
+		this.countUser = countUser;
 	}
 	public String getName() {
 		return name;
@@ -53,5 +53,4 @@ public class ChallengeDataList {
 	public void setTagName2(String tagName2) {
 		this.tagName2 = tagName2;
 	}
-	
 }
