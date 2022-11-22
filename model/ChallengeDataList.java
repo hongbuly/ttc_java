@@ -53,5 +53,4 @@ public class ChallengeDataList {
 	public void setTagName2(String tagName2) {
 		this.tagName2 = tagName2;
 	}
-	
 }
