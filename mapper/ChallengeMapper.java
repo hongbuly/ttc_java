@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import project.model.Challenge;
 import project.model.ChallengeList;
 import project.model.ChallengeMadeUser;
+import project.model.ChallengeMadeUser;
 
 @Mapper
 public interface ChallengeMapper {
