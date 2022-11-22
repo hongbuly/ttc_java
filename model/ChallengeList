@@ -30,9 +30,9 @@ public class ChallengeList {
 		this.countInterval = countInterval;
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
+		this.countUser = countUser;
 		this.name = name;
 		this.tagName = tagName;
-		this.countUser = countUser;
 	}
 	public int getIdChallenge() {
 		return idChallenge;
@@ -100,6 +100,12 @@ public class ChallengeList {
 	public void setMadeIdUser(int madeIdUser) {
 		this.madeIdUser = madeIdUser;
 	}
+	public int getCountUser() {
+		return countUser;
+	}
+	public void setCountUser(int countUser) {
+		this.countUser = countUser;
+	}
 	public String getName() {
 		return name;
 	}
@@ -112,11 +118,6 @@ public class ChallengeList {
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
-	public int getCountUser() {
-		return countUser;
-	}
-	public void setCountUser(int countUser) {
-		this.countUser = countUser;
-	}
+	
 	
 }
