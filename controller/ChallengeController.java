@@ -11,6 +11,8 @@ import project.mapper.ChallengeMapper;
 import project.model.Challenge;
 import project.model.ChallengeList;
 import project.model.ChallengeMadeUser;
+import project.model.ChallengeFavoriteList;
+import project.model.ChallengeDataList;
 
 @RestController
 public class ChallengeController {
