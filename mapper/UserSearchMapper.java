@@ -13,7 +13,7 @@ import project.model.UserSearch;
 @Mapper
 public interface UserSearchMapper {
 		
-		@Select("SELECT * FROM userSearch WHERE idUser=#{idUser}")
+		@Select("SELECT DISTINCT * FROM userSearch WHERE idUser=#{idUser}")
 		List<UserSearch> getUserSearchList(@Param("idUser") int idUser);
 		
 		@Insert("INSERT INTO userSearch VALUES(#{search}, #{idUser})")
