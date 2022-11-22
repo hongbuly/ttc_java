@@ -49,9 +49,11 @@ public class ChallengeController {
 	@GetMapping("/challenge/challengeList")
 	public List<ChallengeDataList> getChallengeListByName(@RequestParam("nameChallenge") String nameChallenge) {
 		List<ChallengeList> temp = mapper.getChallengeListByName(nameChallenge);
-		ChallengeDataList reli = new ChallengeDataList(temp.get(0).getNameChallenge(), temp.get(0).getImageLink(), temp.get(0).getCountUser(), temp.get(0).getName(), temp.get(0).getTagName(), temp.get(1).getTagName());
 		List<ChallengeDataList> re = new ArrayList<>();
-		re.add(reli);
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
 		return re;
 	}
 
