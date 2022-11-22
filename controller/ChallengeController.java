@@ -1,7 +1,7 @@
 package project.controller;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +29,7 @@ public class ChallengeController {
 
 	// 챌린지 이름 기준 검색
 	@GetMapping("/challenge/nameChallenge")
-	public Challenge getChallengeByName(@RequestParam("nameChallenge") String nameChallenge) {
+	public List<Challenge> getChallengeByName(@RequestParam("nameChallenge") String nameChallenge) {
 		return mapper.getChallengeByName(nameChallenge);
 	}
 
