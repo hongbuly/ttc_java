@@ -29,7 +29,7 @@ public class ChallengeController {
 
 	// 챌린지 이름 기준 검색
 	@GetMapping("/challenge/nameChallenge")
-	public Challenge getChallengeByName(@RequestParam("nameChallenge") String nameChallenge) {
+	public List<Challenge> getChallengeByName(@RequestParam("nameChallenge") String nameChallenge) {
 		return mapper.getChallengeByName(nameChallenge);
 	}
 
