@@ -4,7 +4,7 @@ public class UserSearch {
 	private int idUser;
 	private String search;
 	
-	public UserSearch(int idUser, String search) {
+	public UserSearch(String search, int idUser) {
 		super();
 		this.idUser = idUser;
 		this.search = search;
