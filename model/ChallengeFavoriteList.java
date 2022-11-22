@@ -1,7 +1,9 @@
 package project.model;
 
-public class ChallengeList {
+public class ChallengeFavoriteList {
+	private int idUser;
 	private int idChallenge;
+	private String name;
 	private String nameChallenge;
 	private String intruduce;
 	private String imageLink;
@@ -13,13 +15,14 @@ public class ChallengeList {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
-	private String name;
 	private String tagName;
-	public ChallengeList(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
-			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser, String name, String tagName) {
+	public ChallengeFavoriteList(int idUser, int idChallenge, String name, String nameChallenge, String intruduce,
+			String imageLink, int frequency, int possibleStartTime, int possibleEndTime, int count,
+			String countInterval, int challengePostCount, int madeIdUser, int countUser, String tagName) {
 		super();
+		this.idUser = idUser;
 		this.idChallenge = idChallenge;
+		this.name = name;
 		this.nameChallenge = nameChallenge;
 		this.intruduce = intruduce;
 		this.imageLink = imageLink;
@@ -31,14 +34,25 @@ public class ChallengeList {
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
 		this.countUser = countUser;
-		this.name = name;
 		this.tagName = tagName;
+	}
+	public int getIdUser() {
+		return idUser;
+	}
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 	public int getIdChallenge() {
 		return idChallenge;
 	}
 	public void setIdChallenge(int idChallenge) {
 		this.idChallenge = idChallenge;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getNameChallenge() {
 		return nameChallenge;
@@ -105,12 +119,6 @@ public class ChallengeList {
 	}
 	public void setCountUser(int countUser) {
 		this.countUser = countUser;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getTagName() {
 		return tagName;
