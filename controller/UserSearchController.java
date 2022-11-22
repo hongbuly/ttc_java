@@ -20,16 +20,32 @@ public class UserSearchController {
 		this.mapper = mapper;
 	}
 	
-	//À¯Àú ¾ÆÀÌµğ·Î À¯Àú ÃÖ±Ù°Ë»ö¾î ºÒ·¯¿À±â
+	//ìœ ì € ì•„ì´ë””ë¡œ ìœ ì € ìµœê·¼ê²€ìƒ‰ì–´ ë¶ˆëŸ¬ì˜¤ê¸°
 	@GetMapping("/usersearch/get")
 	public List<UserSearch> getUserSearchList(@RequestParam("idUser") int idUser) {
 		return mapper.getUserSearchList(idUser);
 	}
 	
-	//À¯Àú ÃÖ±Ù°Ë»ö¾î Ãß°¡ÇÏ±â
+	//ìœ ì € ìµœê·¼ê²€ìƒ‰ì–´ ì¶”ê°€í•˜ê¸°
 	@PostMapping("/usersearch/add")
 	public void postUserSearch(@RequestParam("idUser") int idUser, @RequestParam("search") String search) {
-		mapper.insertUserSearch(idUser, search);
+		if(mapper.getUserSearchByIdSearch(search, idUser).size() > 0) {
+			mapper.deleteUserSearch(idUser, search);
+			mapper.insertUserSearch(idUser, search);
+		}
+		else {
+			mapper.insertUserSearch(idUser, search);
+		}
+	}
+	
+	@DeleteMapping("/usersearch/delete")
+	public void deleteUserSearch(@RequestParam("idUser") int idUser, @RequestParam("search") String search) {
+		mapper.deleteUserSearch(idUser, search);
+	}
+	
+	@GetMapping("/usersearch/getIdSearch")
+	public List<UserSearch> getUserSearchByIdSearch(@RequestParam("search") String search, @RequestParam("idUser") int idUser){
+		return mapper.getUserSearchByIdSearch(search, idUser);
 	}
 	
 }
