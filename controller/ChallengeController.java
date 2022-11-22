@@ -56,18 +56,6 @@ public class ChallengeController {
 		}
 		return re;
 	}
-	
-	//찜 챌린지 불러오기
-	@GetMapping("/challenge/challengeFavorite")
-	public List<ChallengeDataList> getChallengeListByIdUser(@RequestParam("idUser") int idUser) {
-		List<ChallengeFavoriteList> temp = mapper.getChallengeListByIdUser(idUser);
-		List<ChallengeDataList> re = new ArrayList<>();
-		for(int i = 0; i<temp.size(); i=i+2) {
-			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
-			re.add(reli);
-		}
-		return re;
-	}
 
 	// 챌린지 삭제
 	@PostMapping("/challenge/delete")
