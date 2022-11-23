@@ -19,4 +19,9 @@ public interface UserSearchMapper {
 		@Insert("INSERT INTO userSearch VALUES(#{search}, #{idUser})")
 		int insertUserSearch(@Param("idUser") int idUser, @Param("search") String search);
 		
+		@Delete("DELETE FROM userSearch WHERE search=#{search} AND idUser=#{idUser}")
+		int deleteUserSearch(@Param("idUser") int idUser, @Param("search") String search);
+		
+		@Select("SELECT * FROM userSearch WHERE search=#{search} AND idUser=#{idUser}")
+		List<UserSearch> getUserSearchByIdSearch(@Param("search") String search, @Param("idUser") int idUser);
 }
