@@ -13,6 +13,7 @@ public class ChallengeList {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
+	private Date endTime;
 	private int id;
 	private String name;
 	private String email;
@@ -22,7 +23,7 @@ public class ChallengeList {
 	private String tagName;
 	public ChallengeList(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
 			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser, int id, String name, String email, String pw, int level, int idTag,
+			int madeIdUser, int countUser, Date endTime, int id, String name, String email, String pw, int level, int idTag,
 			String tagName) {
 		super();
 		this.idChallenge = idChallenge;
@@ -44,6 +45,7 @@ public class ChallengeList {
 		this.level = level;
 		this.idTag = idTag;
 		this.tagName = tagName;
+		this.setEndTime(endTime);
 	}
 	public int getIdChallenge() {
 		return idChallenge;
@@ -158,6 +160,12 @@ public class ChallengeList {
 	}
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 	
 }
