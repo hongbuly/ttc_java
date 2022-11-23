@@ -48,4 +48,11 @@ public class UserChallengeController {
 		int ranking = mapper.getUserChallengeRanking(idChallenge) + 1;
 		return mapper.insertUserChallenge(idUser, idChallenge, ranking);
 	}
+	
+	// 인증센터 챌린지 불러오기
+	@GetMapping("userChallenge/UserChallengeList")
+	public List<UserChallengeList> getChallengeInformation(@RequestParam("idUser") int idUser){
+		return mapper.getChallengeInformation(idUser);
+	}
+	
 }
