@@ -1,5 +1,7 @@
 package project.model;
 
+import java.sql.Date;
+
 public class ChallengeList {
 	private int idChallenge;
 	private String nameChallenge;
@@ -13,6 +15,7 @@ public class ChallengeList {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
+	private Date endDate;
 	private int id;
 	private String name;
 	private String email;
@@ -22,7 +25,7 @@ public class ChallengeList {
 	private String tagName;
 	public ChallengeList(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
 			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser, int id, String name, String email, String pw, int level, int idTag,
+			int madeIdUser, int countUser, Date endDate, int id, String name, String email, String pw, int level, int idChallenge2, int idTag, int idTag2,
 			String tagName) {
 		super();
 		this.idChallenge = idChallenge;
@@ -37,12 +40,15 @@ public class ChallengeList {
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
 		this.countUser = countUser;
+        		this.endDate = endDate;
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.pw = pw;
 		this.level = level;
+        		this.idChallenge2 = idChallenge2;
 		this.idTag = idTag;
+        		this.idTag2 = idTag2;
 		this.tagName = tagName;
 	}
 	public int getIdChallenge() {
