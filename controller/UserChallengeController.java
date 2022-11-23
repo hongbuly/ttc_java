@@ -40,10 +40,10 @@ public class UserChallengeController {
 	
 	// 인증하기
 	@PostMapping("/userChallenge/certification")
-	public int insertUserChallenge(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
+	public int insertCertification(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
 		UserChallenge temp = mapper.getUserChallenge(idUser, idChallenge);
 		int userPostCount = temp.getUserPostCount() + 1;
-        int ranking = temp.getUserChallengeRanking;
+        int ranking = temp.getRanking();
         Date certificationDate = Date.valueOf(LocalDate.now());
 		Date startDate = temp.getStartDate();
         

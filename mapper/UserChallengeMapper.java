@@ -20,13 +20,13 @@ public interface UserChallengeMapper {
 	@Select("SELECT * FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge}")
 	UserChallenge getUserChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
     
-   	 // 오늘 인증 여부
-    	@Select("SELECT COUNT(*) FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND certificationDay=#{certificationDay}")
-   	 int getUserChallengeToday(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, 					@Param("certificationDay") Date certificationDay);
+    // 오늘 인증 여부
+    @Select("SELECT COUNT(*) FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND certificationDay=#{certificationDay}")
+    int getUserChallengeToday(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, @Param("certificationDay") Date certificationDay);
 
-    	// 인증 날짜
-    	@Select("SELECT certificationDay FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND certificationDay IS NOT NULL")
-    	Date getUserChallengeDate(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
+    // 인증 날짜
+    @Select("SELECT certificationDay FROM userChallenge WHERE idUser=#{idUser} AND idChallenge=#{idChallenge} AND certificationDay IS NOT NULL")
+    List<Date> getUserChallengeDate(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge);
     
 	// 인증하기
 	@Insert("INSERT INTO userChallenge VALUES(#{idUser}, #{idChallenge}, #{userPostCount}, #{ranking}, #{certification}, #{certificationDate}, #{startDate})")

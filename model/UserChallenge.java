@@ -7,28 +7,18 @@ public class UserChallenge {
 	private int idChallenge;
 	private int userPostCount = 0; // 챌린지별 인증한 갯수
 	private int ranking = 0;
-	private int certification = 0; // 인증 여부
 	private Date certificationDay; // 마지막으로 인증한 날짜 "22-11-05"
-    	private Date startDate;
+    private Date startDate;
     
-	public UserChallenge(int idUser, int idChallenge, int userPostCount, int ranking, int certification,
+	public UserChallenge(int idUser, int idChallenge, int userPostCount, int ranking,
 			Date certificationDay, Date startDate) {
 		super();
 		this.idUser = idUser;
 		this.idChallenge = idChallenge;
 		this.userPostCount = userPostCount;
 		this.ranking = ranking;
-		this.certification = certification;
 		this.certificationDay = certificationDay;
 		this.startDate = startDate;
-	}
-	
-	public int getCertification() {
-		return certification;
-	}
-
-	public void setCertification(int certification) {
-		this.certification = certification;
 	}
 
 	public int getIdUser() {
@@ -55,10 +45,6 @@ public class UserChallenge {
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
 	}
-    
-    	public int getCertification() {
-        		return certification;
-    	}
 
 	public Date getCertificationDay() {
 		return certificationDay;
@@ -68,7 +54,7 @@ public class UserChallenge {
 		this.certificationDay = certificationDay;
 	}
     
-    	public Date getStartDate() {
+    public Date getStartDate() {
 		return startDate;
 	}
 }
