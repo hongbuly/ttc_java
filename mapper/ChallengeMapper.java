@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import project.model.Challenge;
 import project.model.ChallengeMadeUser;
 import project.model.ChallengeList;
-
+import project.model.ChallengeFavoriteList;
 
 @Mapper
 public interface ChallengeMapper {
@@ -36,6 +36,14 @@ public interface ChallengeMapper {
 	@Select("SELECT * FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE nameChallenge LIKE CONCAT('%',#{nameChallenge},'%')")
 	List<ChallengeList> getChallengeListByName(@Param("nameChallenge") String nameChallenge);
 
+	//찜 챌린지 불러오기
+	@Select("SELECT * FROM userFavoriteChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge JOIN userProfile u ON c.madeIdUser = u.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE idUser=#{idUser}")
+	List<ChallengeFavoriteList> getChallengeListByIdUser(@Param("idUser") int idUser);
+	
+	//모든 챌린지 데이터 리스트 불러오기
+	@Select("SELECT * FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag ORDER BY c.idChallenge")
+	List<ChallengeList> getAllChallengeList();
+	
 	// 챌린지 삭제
 	@Delete("DELETE FROM challenge WHERE idChallenge=#{idChallenge}")
 	int deleteChallengeById(@Param("idChallenge") int idChallenge);

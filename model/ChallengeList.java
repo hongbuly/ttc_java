@@ -15,18 +15,20 @@ public class ChallengeList {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
-	private Date endDate;
+	private Date endTime;
 	private int id;
 	private String name;
 	private String email;
 	private String pw;
 	private int level;
+	private int idChallenge2;
 	private int idTag;
+	private int idTag2;
 	private String tagName;
 	public ChallengeList(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
 			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser, Date endDate, int id, String name, String email, String pw, int level, int idChallenge2, int idTag, int idTag2,
-			String tagName) {
+			int madeIdUser, int countUser, Date endTime, int id, String name, String email, String pw, int level,
+			int idChallenge2, int idTag, int idTag2, String tagName) {
 		super();
 		this.idChallenge = idChallenge;
 		this.nameChallenge = nameChallenge;
@@ -40,15 +42,15 @@ public class ChallengeList {
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
 		this.countUser = countUser;
-        		this.endDate = endDate;
+		this.endTime = endTime;
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.pw = pw;
 		this.level = level;
-        		this.idChallenge2 = idChallenge2;
+		this.idChallenge2 = idChallenge2;
 		this.idTag = idTag;
-        		this.idTag2 = idTag2;
+		this.idTag2 = idTag2;
 		this.tagName = tagName;
 	}
 	public int getIdChallenge() {
@@ -123,6 +125,12 @@ public class ChallengeList {
 	public void setCountUser(int countUser) {
 		this.countUser = countUser;
 	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
 	public int getId() {
 		return id;
 	}
@@ -153,11 +161,23 @@ public class ChallengeList {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	public int getIdChallenge2() {
+		return idChallenge2;
+	}
+	public void setIdChallenge2(int idChallenge2) {
+		this.idChallenge2 = idChallenge2;
+	}
 	public int getIdTag() {
 		return idTag;
 	}
 	public void setIdTag(int idTag) {
 		this.idTag = idTag;
+	}
+	public int getIdTag2() {
+		return idTag2;
+	}
+	public void setIdTag2(int idTag2) {
+		this.idTag2 = idTag2;
 	}
 	public String getTagName() {
 		return tagName;

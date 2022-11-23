@@ -1,8 +1,8 @@
 package project.controller;
 
 import java.util.List;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.sql.Date;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +13,7 @@ import project.model.Challenge;
 import project.model.ChallengeList;
 import project.model.ChallengeMadeUser;
 import project.model.ChallengeDataList;
+import project.model.ChallengeFavoriteList;
 
 @RestController
 public class ChallengeController {
@@ -39,8 +40,8 @@ public class ChallengeController {
 	public Challenge getChallengeById(@RequestParam("idChallenge") int idChallenge) {
 		return mapper.getChallengeById(idChallenge);
 	}
-
-	//챌린지 만든 사람 검색
+    
+    //챌린지 만든 사람 검색
 	@GetMapping("/challenge/username")
 	public ChallengeMadeUser getMadeUserNameById(@RequestParam("name") String name){
 		return mapper.getMadeUserNameByName(name);
@@ -50,6 +51,30 @@ public class ChallengeController {
 	@GetMapping("/challenge/challengeList")
 	public List<ChallengeDataList> getChallengeListByName(@RequestParam("nameChallenge") String nameChallenge) {
 		List<ChallengeList> temp = mapper.getChallengeListByName(nameChallenge);
+		List<ChallengeDataList> re = new ArrayList<>();
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
+		return re;
+	}
+    
+    //찜 챌린지 불러오기
+	@GetMapping("/challenge/challengeFavorite")
+	public List<ChallengeDataList> getChallengeListByIdUser(@RequestParam("idUser") int idUser) {
+		List<ChallengeFavoriteList> temp = mapper.getChallengeListByIdUser(idUser);
+		List<ChallengeDataList> re = new ArrayList<>();
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
+		return re;
+	}
+    
+    //모든 챌린지 데이터 리스트 불러오기
+	@GetMapping("/challenge/allChallengeDataList")
+	public List<ChallengeDataList> getAllChallengeList(){
+		List<ChallengeList> temp = mapper.getAllChallengeList();
 		List<ChallengeDataList> re = new ArrayList<>();
 		for(int i = 0; i<temp.size(); i=i+2) {
 			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
@@ -74,8 +99,7 @@ public class ChallengeController {
 			@RequestParam("possibleStartTime") int possibleStartTime,
 			@RequestParam("possibleEndTime") int possibleEndTime, @RequestParam("count") int count,
 			@RequestParam("countInterval") String countInterval,
-			@RequestParam("challengePostCount") int challengePostCount, 
-			@RequestParam("madeIdUser") int madeIdUser, @RequestParam("endDate") Date endDate) {
+			@RequestParam("challengePostCount") int challengePostCount, @RequestParam("madeIdUser") int madeIdUser, @RequestParam("endDate") Date endDate) {
 		mapper.insertChallenge(idChallenge, nameChallenge, intruduce, imageLink, frequency, possibleStartTime,
 				possibleEndTime, count, countInterval, challengePostCount, madeIdUser, endDate);
 	}
