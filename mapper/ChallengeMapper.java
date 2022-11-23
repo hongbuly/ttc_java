@@ -1,7 +1,7 @@
 package project.mapper;
 
 import java.util.List;
-
+import java.sql.Date;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -53,5 +53,5 @@ public interface ChallengeMapper {
 			@Param("frequency") int frequency, @Param("possibleStartTime") int possibleStartTime,
 			@Param("possibleEndTime") int possibleEndTime, @Param("count") int count,
 			@Param("countInterval") String countInterval, @Param("challengePostCount") int challengePostCount,
-			@Param("madeIdUser") int madeIdUser);
+			@Param("madeIdUser") int madeIdUser, @Param("endDate") Date endDate);
 }

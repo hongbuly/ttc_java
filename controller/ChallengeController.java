@@ -1,6 +1,7 @@
 package project.controller;
 
 import java.util.List;
+import java.sql.Date;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,8 +86,9 @@ public class ChallengeController {
 			@RequestParam("possibleStartTime") int possibleStartTime,
 			@RequestParam("possibleEndTime") int possibleEndTime, @RequestParam("count") int count,
 			@RequestParam("countInterval") String countInterval,
-			@RequestParam("challengePostCount") int challengePostCount, @RequestParam("madeIdUser") int madeIdUser) {
+			@RequestParam("challengePostCount") int challengePostCount, 
+			@RequestParam("madeIdUser") int madeIdUser, @RequestParam("endDate") Date endDate) {
 		mapper.insertChallenge(idChallenge, nameChallenge, intruduce, imageLink, frequency, possibleStartTime,
-				possibleEndTime, count, countInterval, challengePostCount, madeIdUser);
+				possibleEndTime, count, countInterval, challengePostCount, madeIdUser, endDate);
 	}
 }

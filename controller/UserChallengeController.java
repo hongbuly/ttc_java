@@ -1,6 +1,7 @@
 package project.controller;
 
 import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,7 @@ public class UserChallengeController {
 	@PostMapping("userChallenge/add")
 	public int insertUserChallenge(@RequestParam("idUser") int idUser, @RequestParam("idChallenge") int idChallenge) {
 		int ranking = mapper.getUserChallengeRanking(idChallenge) + 1;
-		return mapper.insertUserChallenge(idUser, idChallenge, ranking);
+		Date startDate = Date.valueOf(LocalDate.now());
+		return mapper.insertUserChallenge(idUser, idChallenge, ranking, startDate);
 	}
 }

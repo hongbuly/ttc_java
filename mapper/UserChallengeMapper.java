@@ -3,7 +3,7 @@ package project.mapper;
 import project.model.UserChallenge;
 
 import java.util.List;
-
+import java.sql.Date;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,8 +26,8 @@ public interface UserChallengeMapper {
 			@Param("userPostCount") int userPostCount, @Param("certification") int certification);
 	
 	// 챌린지 참여하기
-	@Insert("INSERT INTO userChallenge VALUES(#{idUser}, #{idChallenge}, 0, #{ranking}, 0)")
-	int insertUserChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, @Param("ranking") int ranking);
+	@Insert("INSERT INTO userChallenge VALUES(#{idUser}, #{idChallenge}, 0, #{ranking}, 0, null, #{startDate})")
+	int insertUserChallenge(@Param("idUser") int idUser, @Param("idChallenge") int idChallenge, @Param("ranking") int ranking, @Param("startDate") Date startDate);
 	
 	// 챌린지 참여중인 사람 수 구하기(랭킹)
 	@Select("SELECT COUNT(*) FROM userChallenge WHERE idChallenge=#{idChallenge}")

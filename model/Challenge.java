@@ -13,9 +13,11 @@ public class Challenge {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
+	private int endDate;
+
 	public Challenge(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
 			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser) {
+			int madeIdUser, int countUser, int endDate) {
 		super();
 		this.idChallenge = idChallenge;
 		this.nameChallenge = nameChallenge;
@@ -29,6 +31,7 @@ public class Challenge {
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
 		this.countUser = countUser;
+		this.endDate = endDate;
 	}
 	public int getIdChallenge() {
 		return idChallenge;
