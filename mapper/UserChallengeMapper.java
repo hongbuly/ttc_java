@@ -32,4 +32,8 @@ public interface UserChallengeMapper {
 	// 챌린지 참여중인 사람 수 구하기(랭킹)
 	@Select("SELECT COUNT(*) FROM userChallenge WHERE idChallenge=#{idChallenge}")
 	int getUserChallengeRanking(@Param("idChallenge") int idChallenge);
+	
+	// 인증센터 챌린지 불러오기
+	@Select("SELECT c.nameChallenge, c.imageLink, up.name FROM userChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge JOIN userProfile up ON c.madeIdUser = up.id WHERE idUser = #{idUser}")
+	List<UserChallengeList> getChallengeInformation(@Param("idUser") int idUser);
 }
