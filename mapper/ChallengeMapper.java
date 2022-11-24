@@ -47,11 +47,13 @@ public interface ChallengeMapper {
 	// 챌린지 내용 수정
 
 	// 챌린지 등록
-	@Insert("INSERT INTO challenge VALUES(#{idChallenge}, #{nameChallenge}, #{intruduce}, #{imageLink}, #{frequency}, #{possibleStartTime}, #{possibleEndTime}, #{count}, #{countInterval}, #{challengePostCount}, #{madeIdUser})")
+	@Insert("INSERT INTO challenge VALUES(#{idChallenge}, #{nameChallenge}, #{intruduce}, #{imageLink}, #{frequency}, #{possibleStartTime}, #{possibleEndTime}, #{count}, #{countInterval}, #{challengePostCount}, #{madeIdUser}, #{countUser}, #{endDate}, #{certificationWay}, #{certificationWayImageLink})")
 	int insertChallenge(@Param("idChallenge") int idChallenge, @Param("nameChallenge") String nameChallenge,
 			@Param("intruduce") String intruduce, @Param("imageLink") String imageLink,
 			@Param("frequency") int frequency, @Param("possibleStartTime") int possibleStartTime,
 			@Param("possibleEndTime") int possibleEndTime, @Param("count") int count,
 			@Param("countInterval") String countInterval, @Param("challengePostCount") int challengePostCount,
-			@Param("madeIdUser") int madeIdUser, @Param("endDate") Date endDate);
+			@Param("madeIdUser") int madeIdUser, @Param("countUser") int countUser, @Param("endDate") int endDate,
+			@Param("certificationWay") String certificationWay, @Param("certificationWayImageLink") String certificationWayImageLink);
+	
 }
