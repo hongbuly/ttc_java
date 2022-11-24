@@ -13,9 +13,12 @@ public class Challenge {
 	private int challengePostCount;
 	private int madeIdUser;
 	private int countUser;
+    private int endDate;
+    private String certificationWay;
+    private String certificationWayImageLink;
 	public Challenge(int idChallenge, String nameChallenge, String intruduce, String imageLink, int frequency,
 			int possibleStartTime, int possibleEndTime, int count, String countInterval, int challengePostCount,
-			int madeIdUser, int countUser) {
+			int madeIdUser, int countUser, int endDate, String certificationWay, String certificationWayImageLink) {
 		super();
 		this.idChallenge = idChallenge;
 		this.nameChallenge = nameChallenge;
@@ -29,6 +32,9 @@ public class Challenge {
 		this.challengePostCount = challengePostCount;
 		this.madeIdUser = madeIdUser;
 		this.countUser = countUser;
+		this.endDate = endDate;
+		this.certificationWay = certificationWay;
+		this.certificationWayImageLink = certificationWayImageLink;
 	}
 	public int getIdChallenge() {
 		return idChallenge;
@@ -102,5 +108,23 @@ public class Challenge {
 	public void setCountUser(int countUser) {
 		this.countUser = countUser;
 	}
-	
+	public int getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(int endDate) {
+		this.endDate = endDate;
+	}
+	public String getCertificationWay() {
+		return certificationWay;
+	}
+	public void setCertificationWay(String certificationWay) {
+		this.certificationWay = certificationWay;
+	}
+	public String getCertificationWayImageLink() {
+		return certificationWayImageLink;
+	}
+	public void setCertificationWayImageLink(String certificationWayImageLink) {
+		this.certificationWayImageLink = certificationWayImageLink;
+	}
+    
 }
