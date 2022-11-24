@@ -12,7 +12,7 @@ public interface UserChallengeCountMapper {
 	int getUserProgressCount(@Param("idUser") int idUser);
     
     // 완료
-	@Select("SELECT COUNT(*) FROM userChallenge u INNER JOIN challenge c ON u.idChallenge = c.idChallenge WHERE u.idUser=#{idUser} AND DATEDIFF(u.startDate, #{nowDate}) > c.endDate")
+	@Select("SELECT COUNT(*) FROM userChallenge u INNER JOIN challenge c ON u.idChallenge = c.idChallenge WHERE u.idUser=#{idUser} AND DATEDIFF(#{nowDate}, u.startDate) > c.endDate")
 	int getUserCompleteCount(@Param("idUser") int idUser, @Param("nowDate") Date nowDate);
     
     // 내가 개설
