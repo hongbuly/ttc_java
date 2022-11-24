@@ -55,4 +55,42 @@ public class UserChallengeController {
 		return mapper.getChallengeInformation(idUser);
 	}
 	
+	// 진행중인 챌린지 불러오기
+	@GetMapping("userChallenge/processChallenge")
+	public List<ChallengeDataList> getUserProgressChallenge(@RequestParam("idUser") int idUser){
+		Date nowDate = Date.valueOf(LocalDate.now());
+		List<ChallengeList> temp = mapper.getUserProgressChallenge(idUser, nowDate);
+		List<ChallengeDataList> re = new ArrayList<>();
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
+		return re;
+	}
+	
+	// 완료한 챌린지 불러오기
+	@GetMapping("userChallenge/completeChallenge")
+	public List<ChallengeDataList> getUserCompleteChallenge(@RequestParam("idUser") int idUser){
+		Date nowDate = Date.valueOf(LocalDate.now());
+		List<ChallengeList> temp = mapper.getUserCompleteChallenge(idUser, nowDate);
+		List<ChallengeDataList> re = new ArrayList<>();
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
+		return re;
+	}
+	
+	// 내가 만든 챌린지 불러오기
+	@GetMapping("/userChallenge/userUploadChallenge")
+	public List<ChallengeDataList> getUserUploadChallenge(@RequestParam("idUser") int idUser){
+		List<ChallengeList> temp = mapper.getUserUploadChallenge(idUser);
+		List<ChallengeDataList> re = new ArrayList<>();
+		for(int i = 0; i<temp.size(); i=i+2) {
+			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
+			re.add(reli);
+		}
+		return re;
+	}
+	
 }
