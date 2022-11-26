@@ -50,4 +50,29 @@ public class UserChallengeController {
 		Date startDate = Date.valueOf(LocalDate.now());
 		return mapper.insertUserChallenge(idUser, idChallenge, ranking, startDate);
 	}
+	// 인증센터 챌린지 불러오기
+	@GetMapping("userChallenge/UserChallengeList")
+	public List<UserChallengeList> getChallengeInformation(@RequestParam("idUser") int idUser){
+		return mapper.getChallengeInformation(idUser);
+	}
+	
+	// 진행중인 챌린지 불러오기
+	@GetMapping("userChallenge/processChallenge")
+	public List<ChallengeDataList> getUserProgressChallenge(@RequestParam("idUser") int idUser){
+		Date nowDate = Date.valueOf(LocalDate.now());
+		return mapper.getUserProgressChallenge(idUser, nowDate);
+	}
+	
+	// 완료한 챌린지 불러오기
+	@GetMapping("userChallenge/completeChallenge")
+	public List<ChallengeDataList> getUserCompleteChallenge(@RequestParam("idUser") int idUser){
+		Date nowDate = Date.valueOf(LocalDate.now());
+		return mapper.getUserCompleteChallenge(idUser, nowDate);
+	}
+	
+	// 내가 만든 챌린지 불러오기
+	@GetMapping("/userChallenge/userUploadChallenge")
+	public List<ChallengeDataList> getUserUploadChallenge(@RequestParam("idUser") int idUser){
+		return mapper.getUserUploadChallenge(idUser);
+	}
 }
