@@ -49,25 +49,20 @@ public class ChallengeController {
 	// 챌린지 이름 기준 데이터 모델 검색
 	@GetMapping("/challenge/challengeList")
 	public List<ChallengeDataList> getChallengeListByName(@RequestParam("nameChallenge") String nameChallenge) {
-		List<ChallengeList> temp = mapper.getChallengeListByName(nameChallenge);
-		List<ChallengeDataList> re = new ArrayList<>();
-		for(int i = 0; i<temp.size(); i=i+2) {
-			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
-			re.add(reli);
-		}
-		return re;
+		return mapper.getChallengeListByName(nameChallenge);
+		
 	}
 	
 	//찜 챌린지 불러오기
 	@GetMapping("/challenge/challengeFavorite")
 	public List<ChallengeDataList> getChallengeListByIdUser(@RequestParam("idUser") int idUser) {
-		List<ChallengeFavoriteList> temp = mapper.getChallengeListByIdUser(idUser);
-		List<ChallengeDataList> re = new ArrayList<>();
-		for(int i = 0; i<temp.size(); i=i+2) {
-			ChallengeDataList reli = new ChallengeDataList(temp.get(i).getNameChallenge(), temp.get(i).getImageLink(), temp.get(i).getCountUser(), temp.get(i).getName(), temp.get(i).getTagName(), temp.get(i+1).getTagName());
-			re.add(reli);
-		}
-		return re;
+		return mapper.getChallengeListByIdUser(idUser);
+	}
+	
+	//모든 챌린지 데이터 리스트 불러오기
+	@GetMapping("/challenge/allChallengeDataList")
+	public List<ChallengeDataList> getAllChallengeList(){
+		return mapper.getAllChallengeList();
 	}
 
 	// 챌린지 삭제
