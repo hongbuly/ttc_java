@@ -33,12 +33,16 @@ public interface ChallengeMapper {
 	ChallengeMadeUser getMadeUserNameByName(@Param("name") String name);
 	
 	//challengeListModel 리턴
-	@Select("SELECT * FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE nameChallenge LIKE CONCAT('%',#{nameChallenge},'%')")
-	List<ChallengeList> getChallengeListByName(@Param("nameChallenge") String nameChallenge);
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, uf.name FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id WHERE nameChallenge LIKE CONCAT('%',#{nameChallenge},'%') ORDER BY c.idChallenge")
+	List<ChallengeDataList> getChallengeListByName(@Param("nameChallenge") String nameChallenge);
 	
 	//찜 챌린지 불러오기
-	@Select("SELECT * FROM userFavoriteChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge JOIN userProfile u ON c.madeIdUser = u.id JOIN challengeTag ct ON c.idChallenge = ct.idChallenge JOIN tag t ON ct.idTag = t.idTag WHERE idUser=#{idUser}")
-	List<ChallengeFavoriteList> getChallengeListByIdUser(@Param("idUser") int idUser);
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, u.name FROM userFavoriteChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge JOIN userProfile u ON c.madeIdUser = u.id WHERE idUser=#{idUser} ORDER BY c.idChallenge")
+	List<ChallengeDataList> getChallengeListByIdUser(@Param("idUser") int idUser);
+	
+	//모든 챌린지 데이터 리스트 불러오기
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, uf.name FROM challenge c JOIN userProfile uf ON c.madeIdUser = uf.id ORDER BY c.idChallenge")
+	List<ChallengeDataList> getAllChallengeList();
 	
 	// 챌린지 삭제
 	@Delete("DELETE FROM challenge WHERE idChallenge=#{idChallenge}")
