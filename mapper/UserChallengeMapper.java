@@ -32,4 +32,33 @@ public interface UserChallengeMapper {
 	// 챌린지 참여중인 사람 수 구하기(랭킹)
 	@Select("SELECT COUNT(*) FROM userChallenge WHERE idChallenge=#{idChallenge}")
 	int getUserChallengeRanking(@Param("idChallenge") int idChallenge);
+	
+	// 인증센터 챌린지 불러오기
+	@Select("SELECT c.nameChallenge, c.imageLink, up.name FROM userChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge JOIN userProfile up ON c.madeIdUser = up.id WHERE idUser = #{idUser}")
+	List<UserChallengeList> getChallengeInformation(@Param("idUser") int idUser);
+	
+	// 참여중인 챌린지 반환
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, up.name "
+			+ "FROM userChallenge uc JOIN challenge c ON uc.idChallenge = c.idChallenge "
+			+ "JOIN userProfile up ON c.madeIdUser = up.id "
+			+ "WHERE idUser=#{idUser} AND DATEDIFF(#{nowDate}, uc.startDate) < c.endDate "
+			+ "ORDER BY c.idChallenge")
+	List<ChallengeDataList> getUserProgressChallenge(@Param("idUser") int idUser, @Param("nowDate") Date nowDate);
+	
+	// 완료
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, up.name "
+			+ "FROM userChallenge u JOIN challenge c ON u.idChallenge = c.idChallenge "
+			+ "JOIN userProfile up ON c.madeIdUser = up.id "
+			+ "WHERE u.idUser=#{idUser} AND DATEDIFF(#{nowDate}, u.startDate) >= c.endDate "
+			+ "ORDER BY c.idChallenge")
+	List<ChallengeDataList> getUserCompleteChallenge(@Param("idUser") int idUser, @Param("nowDate") Date nowDate);
+	    
+	// 내가 개설
+	@Select("SELECT c.nameChallenge, c.imageLink, c.countUser, up.name "
+			+ "FROM challenge c JOIN userProfile up ON c.madeIdUser = up.id "
+			+ "WHERE madeIdUser=#{idUser} "
+			+ "ORDER BY c.idChallenge")
+	List<ChallengeDataList> getUserUploadChallenge(@Param("idUser") int idUser);
+	
+	
 }
