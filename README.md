@@ -33,3 +33,11 @@ _____________________________
 
 ### MySQL ERD
 <img src="images/erd.png" width="60%" height="60%">
+
+### 간단한 프로젝트 개발 설명
+만들어야 하는 자바 파일은 controller, mapper, model 세 가지로 나눌 수 있다.  
+controller는 http 요청을 듣고 응답해주는 역할이다
+
+mapper는 controller에서 sql문을 출력을 위한 것이다.
+
+model은 sql문 출력문을 저장하거나 json 형태로 http 응답에 이용되기 위한 것이다.
