@@ -5,7 +5,8 @@ TimeToCode 앱은 꾸준한 프로그래밍 공부 습관을 만들기 위해 �
 구름은 기본 위치가 정해져 있기 때문에 /src/main/java 이후를 기준으로 패키지 위치를 작성하였다.
 
 ### 프로젝트 실행시 주의 사항
-application.properties와 pom.xml파일 내용을 변경해야 한다.
+Spring Boot 새 프로젝트를 생성 후, application.properties와 pom.xml파일 내용을 변경해야 한다.   
+새 프로젝트 안에 패키지 경로를 수정한 자바 파일을 추가해야 한다.   
 
 ### 구름에서 프로젝트 시작하기
 구름에서 spring boot와 mysql 프로젝트를 생성한 후 파일을 추가한다.
